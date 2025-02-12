@@ -1,0 +1,361 @@
+[
+    {
+        "id": "913b4921240e5c61",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1ae8db4cddbbbef6",
+        "type": "inject",
+        "z": "913b4921240e5c61",
+        "name": "Entrada",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello World",
+        "payloadType": "str",
+        "x": 430,
+        "y": 1020,
+        "wires": [
+            [
+                "95fa4059ba3c2a5b"
+            ]
+        ]
+    },
+    {
+        "id": "95fa4059ba3c2a5b",
+        "type": "debug",
+        "z": "913b4921240e5c61",
+        "name": "Saída",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "131436dd6987bb95",
+        "type": "change",
+        "z": "913b4921240e5c61",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Biruleibe!",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Saudação",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 1180,
+        "wires": [
+            [
+                "60211172f67c8144"
+            ]
+        ]
+    },
+    {
+        "id": "06a43170ad47a97b",
+        "type": "comment",
+        "z": "913b4921240e5c61",
+        "name": "Função Definir",
+        "info": "",
+        "x": 680,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "8d8ed64a4d65b688",
+        "type": "inject",
+        "z": "913b4921240e5c61",
+        "name": "Entrada_Dados",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 460,
+        "y": 1140,
+        "wires": [
+            [
+                "131436dd6987bb95"
+            ]
+        ]
+    },
+    {
+        "id": "60211172f67c8144",
+        "type": "debug",
+        "z": "913b4921240e5c61",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "7f212f556e53d2b2",
+        "type": "comment",
+        "z": "913b4921240e5c61",
+        "name": "Funação Switch",
+        "info": "",
+        "x": 680,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "4c0a97d38dbde2ea",
+        "type": "switch",
+        "z": "913b4921240e5c61",
+        "name": "Interruptor",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "input_01",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "input_02",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 1360,
+        "wires": [
+            [
+                "88820c96972d685c"
+            ],
+            [
+                "c51b94fbcc511585"
+            ]
+        ]
+    },
+    {
+        "id": "9b2ff12bbed258be",
+        "type": "inject",
+        "z": "913b4921240e5c61",
+        "name": "Entrada_01",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "input_01",
+        "payloadType": "str",
+        "x": 450,
+        "y": 1340,
+        "wires": [
+            [
+                "4c0a97d38dbde2ea"
+            ]
+        ]
+    },
+    {
+        "id": "714ea6951076f19d",
+        "type": "inject",
+        "z": "913b4921240e5c61",
+        "name": "Entrada_02",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "input_02",
+        "payloadType": "str",
+        "x": 450,
+        "y": 1380,
+        "wires": [
+            [
+                "4c0a97d38dbde2ea"
+            ]
+        ]
+    },
+    {
+        "id": "88820c96972d685c",
+        "type": "debug",
+        "z": "913b4921240e5c61",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "c51b94fbcc511585",
+        "type": "debug",
+        "z": "913b4921240e5c61",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "8ebd5c3afb4f6384",
+        "type": "comment",
+        "z": "913b4921240e5c61",
+        "name": "Operações Matemáticas Simples",
+        "info": "",
+        "x": 730,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "b95877b3a8f2980a",
+        "type": "inject",
+        "z": "913b4921240e5c61",
+        "name": "Input_numérico",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 460,
+        "y": 1520,
+        "wires": [
+            [
+                "56dc3eac33a020b9"
+            ]
+        ]
+    },
+    {
+        "id": "56dc3eac33a020b9",
+        "type": "change",
+        "z": "913b4921240e5c61",
+        "name": "Operação Matemática",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload*2-1",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1520,
+        "wires": [
+            [
+                "4c29ebc16f9a2924"
+            ]
+        ]
+    },
+    {
+        "id": "4c29ebc16f9a2924",
+        "type": "debug",
+        "z": "913b4921240e5c61",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 1580,
+        "wires": []
+    }
+]
