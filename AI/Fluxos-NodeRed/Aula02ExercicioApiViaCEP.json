@@ -1,0 +1,22 @@
+[
+    {
+        "id": "2f3f956f75d2b580",
+        "type": "function",
+        "z": "d5cbb15acb4b443d",
+        "name": "Captura Endereço",
+        "func": "var viacep = msg.payload\nvar viacep_json = JSON.parse(viacep);\nmsg.payload = \"O endereço é o: \" + viacep_json.logradouro  + \", cidade: \" + viacep_json.localidade + \", bairro: \" + viacep_json.bairro + \", UF: \" + viacep_json.uf;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 180,
+        "wires": [
+            [
+                "61a70f212ab588b8"
+            ]
+        ]
+    }
+]
