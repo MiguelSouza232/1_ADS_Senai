@@ -1,7 +1,8 @@
-package aula1tb.examplevariables;
+package aula1tb.exerciciosaula1tb;
 
-public class ExampleVariables {
+public class Exercicio1Aula1 {
 
+//  1. Faça um algoritmo para imprimir em cada linha: o seu nome completo, o seu RA e o seu curso
     public static void main(String[] args) {
         String nome = "Miguel Silva Souza";
         String ra = "79124924811";
