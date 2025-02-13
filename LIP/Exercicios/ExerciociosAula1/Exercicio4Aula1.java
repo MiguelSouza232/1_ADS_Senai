@@ -1,13 +1,16 @@
-package aula1tb.exerciciosaula1tb;
+package com.mycompany.exerciciosaula1tb;
+
+import java.util.Scanner;
 
 public class Exercicio4Aula1 {
 
-// 5. Construir um algoritmo que apresenta o cálculo da área de um quadrado de 350m de lado.
+//  5. Construir um algoritmo que apresenta o cálculo da área de um quadrado de 350m de lado.
     public static void main(String[] args) {
-        float lado = 350f;
-        
-        float area = lado * lado;
-
-        System.out.printf("A área do quadrado é: %.2f%n", area);  
+        double lado, area;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o valor de um lado do quadrado:");
+        lado = sc.nextDouble();
+        area = lado * lado;
+        System.out.println("A área é: " + area);
     }
 }
