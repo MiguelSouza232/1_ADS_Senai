@@ -49,6 +49,7 @@ nav li{
     justify-content: space-between;
 }
 
+/* Estilização do banner */
 .divBanner{
     width: 100%;
 }
@@ -59,3 +60,29 @@ nav li{
     object-fit: cover;
     object-position: center 50%;
 }
+
+/* Estilização da sessão Biografia */
+.bio{
+    margin: 0;
+    text-align: justify;
+    width: 60%;
+    margin-left: 20%;
+}
+
+.titulo_bio{
+    text-align: center;
+    color: white;
+    clear: left;
+}
+
+.img_bio{
+    width: 10%;
+    float: left;
+    margin-right: 20px;
+}
+
+p{
+    color: white;
+}
+
+
