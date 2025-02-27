@@ -1,0 +1,304 @@
+[
+    {
+        "id": "8d957c3df8075b71",
+        "type": "tab",
+        "label": "Fluxo 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dafc4bcec9444e24",
+        "type": "comment",
+        "z": "8d957c3df8075b71",
+        "name": "Leitura de Dados com OPC/UA",
+        "info": "",
+        "x": 690,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "75224577aa42b420",
+        "type": "inject",
+        "z": "8d957c3df8075b71",
+        "name": "Leitura -> Liga",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "b628f7984be70c09"
+            ]
+        ]
+    },
+    {
+        "id": "ed7dbbc7c7e22b95",
+        "type": "inject",
+        "z": "8d957c3df8075b71",
+        "name": "Leitura -> Sinaleiro",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 370,
+        "y": 360,
+        "wires": [
+            [
+                "9733d2134f28fbaa"
+            ]
+        ]
+    },
+    {
+        "id": "b628f7984be70c09",
+        "type": "OpcUa-Item",
+        "z": "8d957c3df8075b71",
+        "item": "ns=4;s=|var|XP325.Application.Node_RED.Liga",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "Node Sinal Liga",
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "4826a18473ab309c"
+            ]
+        ]
+    },
+    {
+        "id": "9733d2134f28fbaa",
+        "type": "OpcUa-Item",
+        "z": "8d957c3df8075b71",
+        "item": "ns=4;s=|var|XP325.Application.Node_RED.Sinaleiro",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "Node Sinal Sinaleiro",
+        "x": 600,
+        "y": 360,
+        "wires": [
+            [
+                "4826a18473ab309c"
+            ]
+        ]
+    },
+    {
+        "id": "5b50333a45432246",
+        "type": "debug",
+        "z": "8d957c3df8075b71",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4826a18473ab309c",
+        "type": "OpcUa-Client",
+        "z": "8d957c3df8075b71",
+        "endpoint": "e4e53afab4efd96b",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 820,
+        "y": 320,
+        "wires": [
+            [],
+            [
+                "5b50333a45432246"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ac1f9c36547b8c73",
+        "type": "comment",
+        "z": "8d957c3df8075b71",
+        "name": "Escrita com OPC/UA",
+        "info": "",
+        "x": 660,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e541dbb5f37bbda8",
+        "type": "inject",
+        "z": "8d957c3df8075b71",
+        "name": "Liga -> True",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 330,
+        "y": 540,
+        "wires": [
+            [
+                "75dd5bf89d60ec86"
+            ]
+        ]
+    },
+    {
+        "id": "c90c9567ce091051",
+        "type": "inject",
+        "z": "8d957c3df8075b71",
+        "name": "Liga -> False",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 330,
+        "y": 620,
+        "wires": [
+            [
+                "75dd5bf89d60ec86"
+            ]
+        ]
+    },
+    {
+        "id": "75dd5bf89d60ec86",
+        "type": "OpcUa-Item",
+        "z": "8d957c3df8075b71",
+        "item": "ns=4;s=|var|XP325.Application.Node_RED.Liga",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "Node Sinal Liga",
+        "x": 580,
+        "y": 580,
+        "wires": [
+            [
+                "ac8deb4b13670fab"
+            ]
+        ]
+    },
+    {
+        "id": "41111e93e2c2f81c",
+        "type": "debug",
+        "z": "8d957c3df8075b71",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ac8deb4b13670fab",
+        "type": "OpcUa-Client",
+        "z": "8d957c3df8075b71",
+        "endpoint": "e4e53afab4efd96b",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 800,
+        "y": 580,
+        "wires": [
+            [],
+            [
+                "41111e93e2c2f81c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e4e53afab4efd96b",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://190.201.100.82:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    }
+]
