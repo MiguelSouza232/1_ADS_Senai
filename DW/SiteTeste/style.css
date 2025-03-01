@@ -1,0 +1,182 @@
+/* Importando a fonte Poppins */
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600; /* SemiBold */
+    font-style: normal;
+}
+
+
+/* Reset básico para remover margens e preenchimentos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Poppins'; /* Aplica a fonte Poppins ao corpo do site */
+    color: white; /* Define a cor do texto como branca */
+    background: #121212; /* Define um fundo escuro */
+}
+
+/* HEADER com imagem de fundo */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    background: url('img/CelsinhoGregs.jpg') no-repeat center center/cover; /* Define a imagem de fundo e ajusta o tamanho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Camada escura para melhorar legibilidade */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Sobreposição escura para destacar o conteúdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilização do Header */
+.divHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    position: absolute;
+    top: 50px; /* Define a posição do cabeçalho */
+}
+
+/* Logo */
+.logo {
+    height: 80px; /* Define a altura da logo */
+}
+
+/* Menu de navegação */
+nav ul {
+    list-style: none; /* Remove os marcadores da lista */
+    display: flex;
+    gap: 50px; /* Adiciona espaçamento entre os itens do menu */
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600; 
+        font-family: 'Poppins', sans-serif;
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Seção da Biografia */
+.bio {
+    padding: 50px; /* Adiciona espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Título da biografia */
+.titulo_bio {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Imagem da biografia */
+.img_bio {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Negrito */
+strong {
+    font-weight: 700; /* Define o peso da fonte como negrito */
+}
+
+/* Parágrafos */
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Define o peso da fonte como regular */
+}
+
+/* Seção Trabalhos */
+.trabalhos {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Título da seção Trabalhos */
+.titulo_trabalhos {
+    font-size: 2.5rem; /* Título maior */
+    margin-bottom: 100px; /* Aumenta o espaçamento entre o título e os trabalhos */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* SemiBold */
+}
+
+/* Container com 3 colunas */
+.container_trabalhos {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Mantém responsividade */
+}
+
+/* Cada trabalho */
+.trabalho {
+    width: 480px; /* Mantém o tamanho grande */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Corrige desalinhamento dos títulos */
+.trabalho h3 {
+    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* SemiBold */
+    min-height: 50px; /* Garante que todos os títulos tenham a mesma altura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 15px; /* Aumenta o espaçamento abaixo do texto */
+}
+
+/* Imagem estilo thumbnail */
+.thumbnail {
+    width: 100%; /* Mantém o tamanho do container */
+    height: auto;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+
