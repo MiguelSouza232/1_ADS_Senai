@@ -25,7 +25,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 /* Corpo da página */
@@ -55,7 +54,6 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.4); /* Sobreposição escura para destacar o conteúdo */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
