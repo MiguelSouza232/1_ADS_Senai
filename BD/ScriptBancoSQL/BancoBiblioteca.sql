@@ -21,7 +21,7 @@ ALTER TABLE autor ADD constraint pk_cod_autor PRIMARY KEY (cod_autor);
 ALTER TABLE autor CHANGE COLUMN nome nome_autor VARCHAR(50);
 
 #adicionar endereço para o autor
-ALTER TABLE autor ADD COLUMN enderco VARCHAR(100);
+ALTER TABLE autor ADD COLUMN endereco VARCHAR(100);
 
 CREATE TABLE equipamentos(
 	cod_equip int auto_increment primary key,
