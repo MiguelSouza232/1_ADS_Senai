@@ -97,3 +97,42 @@ p{
 .mapa{
     text-align: center;
 }
+
+.titulo_servicos{
+    text-align: center;
+    color: white;
+    clear: left;
+}
+
+.servicos{
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    /* margin-top: 100px;
+    margin-left: 40%;*/
+    color: white;
+}
+
+.servicos li{
+    line-height: 2;
+}
+
+.img_servicos{
+    width: 10%;
+    border-radius: 3px;
+    transition: transform .3s;
+}
+
+.img_servicos:hover{
+    transform: scale(1.1);    
+}
+
+.servicosGeral{
+    padding-top: 1px;
+    background: linear-gradient(#6D24CA, #111111);
+}
+
+.div_servicos{
+    width: 60%;
+    margin-left: 35%;
+}
