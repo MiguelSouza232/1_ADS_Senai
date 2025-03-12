@@ -1,8 +1,8 @@
 package com.mycompany.exerciciorepeticao;
 public class Repeticao_MultiplosDe4Entre500e2000 {
     public static void main(String[] args) {
-        int soma = 0;
-        for (int i = 500; i <= 2000; i++) {
+        int i, soma = 0;
+        for (i = 500; i <= 2000; i++) {
             if (i % 4 == 0) {
                 soma = soma + i;
             }

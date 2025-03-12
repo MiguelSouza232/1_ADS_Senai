@@ -2,8 +2,8 @@ package com.mycompany.exerciciorepeticao;
 public class ExercicioRepeticao {
 
     public static void main(String[] args) {
-        int soma = 0;
-        for (int i = 1; i < 101; i++){
+        int i, soma = 0;
+        for (i = 1; i <= 100; i++){
             soma = soma + i;
         }
         

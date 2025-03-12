@@ -1,8 +1,8 @@
 package com.mycompany.exerciciorepeticao;
 public class Repeticao_6a190 {
     public static void main(String[] args) {
-        int soma = 0;
-        for (int i = 6; i < 191; i++) {
+        int i, soma = 0;
+        for (i = 6; i <= 190; i++) {
             soma = soma + i;
         }
         
