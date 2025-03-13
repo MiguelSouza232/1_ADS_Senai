@@ -1,0 +1,18 @@
+[
+    {
+        "id": "9627392ede4ac9c7",
+        "type": "OpcUa-Item",
+        "z": "c394485ce3096818",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.Saida_AND",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "AND",
+        "x": 410,
+        "y": 560,
+        "wires": [
+            [
+                "413307edd2c3e922"
+            ]
+        ]
+    }
+]
