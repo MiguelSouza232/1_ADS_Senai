@@ -135,3 +135,27 @@ p {
   width: 60%;
   margin-left: 35%;
 }
+
+.video {
+  padding: 5% 0 5% 28%;
+}
+
+/* Footer */
+.logo_footer {
+  width: 5%;
+  float: left;
+}
+
+footer p {
+  display: inline-block;
+  text-align: right;
+  width: 82%;
+  font-size: 20px;
+}
+
+footer {
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  padding: 50px;
+}
