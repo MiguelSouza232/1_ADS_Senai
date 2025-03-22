@@ -143,19 +143,24 @@ p {
 /* Footer */
 .logo_footer {
   width: 5%;
-  float: left;
+  display: flex;
 }
 
 footer p {
-  display: inline-block;
+  /* display: inline-block; */
   text-align: right;
-  width: 82%;
+  /* width: 82%; */
   font-size: 20px;
 }
 
 footer {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: end; 
+  align-items: end;
   background-size: cover;
   background-position: center;
   background-color: black;
-  padding: 50px;
+  padding: 30px;
 }
+
