@@ -1,0 +1,284 @@
+[
+    {
+        "id": "f64b6bd1b3615ed0",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9eea08d04fafb91c",
+        "type": "inject",
+        "z": "f64b6bd1b3615ed0",
+        "name": "Ir",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "949968fe457c7ae6",
+                "d361ce260916c312"
+            ]
+        ]
+    },
+    {
+        "id": "0018a73dc6af71b8",
+        "type": "inject",
+        "z": "f64b6bd1b3615ed0",
+        "name": "voltar",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 220,
+        "wires": [
+            [
+                "1ed38bbc67de7154",
+                "7dfc1de32e8c170f"
+            ]
+        ]
+    },
+    {
+        "id": "949968fe457c7ae6",
+        "type": "OpcUa-Item",
+        "z": "f64b6bd1b3615ed0",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.start_maq",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "Start",
+        "x": 310,
+        "y": 40,
+        "wires": [
+            [
+                "c899983032929e20"
+            ]
+        ]
+    },
+    {
+        "id": "1ed38bbc67de7154",
+        "type": "OpcUa-Item",
+        "z": "f64b6bd1b3615ed0",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.stop_maq",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "Stop",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "c899983032929e20"
+            ]
+        ]
+    },
+    {
+        "id": "c899983032929e20",
+        "type": "OpcUa-Client",
+        "z": "f64b6bd1b3615ed0",
+        "endpoint": "e4e53afab4efd96b",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "56f74c2e9df6aee7"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "56f74c2e9df6aee7",
+        "type": "OpcUa-Item",
+        "z": "f64b6bd1b3615ed0",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.atuador",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "Atuador",
+        "x": 680,
+        "y": 100,
+        "wires": [
+            [
+                "803759b556491b6b"
+            ]
+        ]
+    },
+    {
+        "id": "803759b556491b6b",
+        "type": "debug",
+        "z": "f64b6bd1b3615ed0",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "42696f350bdebbae",
+        "type": "delay",
+        "z": "f64b6bd1b3615ed0",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 240,
+        "y": 140,
+        "wires": [
+            [
+                "949968fe457c7ae6"
+            ]
+        ]
+    },
+    {
+        "id": "9a7641296ecf8f30",
+        "type": "delay",
+        "z": "f64b6bd1b3615ed0",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "1ed38bbc67de7154"
+            ]
+        ]
+    },
+    {
+        "id": "7dfc1de32e8c170f",
+        "type": "change",
+        "z": "f64b6bd1b3615ed0",
+        "name": "mudar",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "9a7641296ecf8f30"
+            ]
+        ]
+    },
+    {
+        "id": "d361ce260916c312",
+        "type": "change",
+        "z": "f64b6bd1b3615ed0",
+        "name": "mudar",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "42696f350bdebbae"
+            ]
+        ]
+    },
+    {
+        "id": "e4e53afab4efd96b",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://190.201.100.82:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    }
+]
