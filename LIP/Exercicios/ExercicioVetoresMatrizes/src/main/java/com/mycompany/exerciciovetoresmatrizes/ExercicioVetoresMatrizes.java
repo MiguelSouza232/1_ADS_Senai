@@ -2,6 +2,7 @@ package com.mycompany.exerciciovetoresmatrizes;
 import java.util.Scanner;
 public class ExercicioVetoresMatrizes {
 
+//Desenvolva um algoritmo, utilizando vetor, que armazene a idade de 5 pessoas (as idades deverão ser solicitadas ao usuário) e calcule a média de idades.
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int vetor1[] = new int[5];
