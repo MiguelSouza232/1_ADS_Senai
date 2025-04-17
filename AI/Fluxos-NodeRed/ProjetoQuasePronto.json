@@ -1,0 +1,576 @@
+[
+    {
+        "id": "a92a45daba686600",
+        "type": "tab",
+        "label": "Fluxo 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "806f67c1f19e4098",
+        "type": "OpcUa-Client",
+        "z": "a92a45daba686600",
+        "endpoint": "e4e53afab4efd96b",
+        "action": "write",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 960,
+        "y": 240,
+        "wires": [
+            [],
+            [
+                "46d30f4e0767298b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "46d30f4e0767298b",
+        "type": "debug",
+        "z": "a92a45daba686600",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "fb2e5a59be59382f",
+        "type": "ui_button",
+        "z": "a92a45daba686600",
+        "name": "",
+        "group": "69cd48806edf66d9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "start",
+        "topicType": "str",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "e124cf79c5872846",
+                "54ca3badcebbbb1c"
+            ]
+        ]
+    },
+    {
+        "id": "621dfed8989dc046",
+        "type": "ui_button",
+        "z": "a92a45daba686600",
+        "name": "",
+        "group": "69cd48806edf66d9",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "stop",
+        "topicType": "str",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "f650df88e96b76e8",
+                "2ad1919f875ce16e"
+            ]
+        ]
+    },
+    {
+        "id": "e124cf79c5872846",
+        "type": "OpcUa-Item",
+        "z": "a92a45daba686600",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.Start",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "Start",
+        "x": 650,
+        "y": 200,
+        "wires": [
+            [
+                "806f67c1f19e4098"
+            ]
+        ]
+    },
+    {
+        "id": "f650df88e96b76e8",
+        "type": "OpcUa-Item",
+        "z": "a92a45daba686600",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.Stop",
+        "datatype": "Boolean",
+        "value": "",
+        "name": "Stop",
+        "x": 650,
+        "y": 280,
+        "wires": [
+            [
+                "806f67c1f19e4098"
+            ]
+        ]
+    },
+    {
+        "id": "25d5884794831bf4",
+        "type": "delay",
+        "z": "a92a45daba686600",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "e124cf79c5872846"
+            ]
+        ]
+    },
+    {
+        "id": "54ca3badcebbbb1c",
+        "type": "change",
+        "z": "a92a45daba686600",
+        "name": "False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "25d5884794831bf4"
+            ]
+        ]
+    },
+    {
+        "id": "ad7e5565ec834837",
+        "type": "delay",
+        "z": "a92a45daba686600",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 500,
+        "y": 360,
+        "wires": [
+            [
+                "f650df88e96b76e8"
+            ]
+        ]
+    },
+    {
+        "id": "2ad1919f875ce16e",
+        "type": "change",
+        "z": "a92a45daba686600",
+        "name": "False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 360,
+        "wires": [
+            [
+                "ad7e5565ec834837"
+            ]
+        ]
+    },
+    {
+        "id": "cf77c9b2aba3ad72",
+        "type": "inject",
+        "z": "a92a45daba686600",
+        "name": "Atualiza a cada 1s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 580,
+        "wires": [
+            [
+                "3832485931b315f5"
+            ]
+        ]
+    },
+    {
+        "id": "f6db358d3d3f4acf",
+        "type": "function",
+        "z": "a92a45daba686600",
+        "name": "Descrição do Passo",
+        "func": "\nlet passo = msg.payload;\nlet descricao = \"\";\n\nif(passo === 0) {\n    msg.payload = \"Passo 0: Aguardando Start\";\n} else if (passo === 10) {\n    msg.payload = \"Passo 10: Cilindro de Dupla ação avança e sinaleiro ativa\";\n} else if (passo === 20){\n    msg.payload = \"Passo 20: Cilindro de simples ação avança (3s)\";\n} else if (passo === 30) {\n    msg.payload = \"Passo 30: Cilindro de dupla ação retrai(2s)\";\n} else if (passo === 40) {\n    msg.payload = \"Passo 40: Cilindro simples ação retorna\";\n} else if (passo ===50){\n    msg.payload = \"Passo 50: Cilindro de simples ação retorna e desliga sinaleiro\";\n} else if (passo === 100) {\n    msg.payload = \"Processo suspenso\";\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 660,
+        "wires": [
+            [
+                "d54a04fd7add3256",
+                "71013736cecb28eb"
+            ]
+        ]
+    },
+    {
+        "id": "d54a04fd7add3256",
+        "type": "ui_text",
+        "z": "a92a45daba686600",
+        "group": "1a44c8167e924d49",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Passo Atual",
+        "label": "Estado:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "",
+        "color": "#ffffff",
+        "x": 1230,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "0e43a1ee4d6cdc0d",
+        "type": "ui_led",
+        "z": "a92a45daba686600",
+        "order": 1,
+        "group": "e46c860c15925d13",
+        "width": 6,
+        "height": 1,
+        "label": "Cilindro Dupla",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#0000ff",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "LED Dupla",
+        "x": 1210,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8888d12f7b878958",
+        "type": "ui_led",
+        "z": "a92a45daba686600",
+        "order": 2,
+        "group": "e46c860c15925d13",
+        "width": 6,
+        "height": 1,
+        "label": "Cilindro Simples",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#0000ff",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "LED Simples",
+        "x": 1210,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "f1e853a333126927",
+        "type": "function",
+        "z": "a92a45daba686600",
+        "name": "LED dupla",
+        "func": "if (msg.payload===1) {\n    msg.payload = {label: \"Dupla Avançado\", color: \"blue\"};\n} else if (msg.payload === 2) {\n    msg.payload = {label: \"Dupla Recuando\", color: \"red\"};\n} else {\n    msg.payload = {label: \"Parado\", color: \"gray\"};\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 520,
+        "wires": [
+            [
+                "0e43a1ee4d6cdc0d"
+            ]
+        ]
+    },
+    {
+        "id": "e4133fd937767549",
+        "type": "function",
+        "z": "a92a45daba686600",
+        "name": "LED simples",
+        "func": "if (msg.payload === 1) {\n    msg.payload = {label: \"Simples Avançado\", color: \"blue\"};\n}else if (msg.payload === 2) {\n    msg.payload = {label: \"Simples Recuando\", color: \"red\"};\n}else {\n    msg.payload = {label: \"Parado\", color: \"gray\"};\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 580,
+        "wires": [
+            [
+                "8888d12f7b878958"
+            ]
+        ]
+    },
+    {
+        "id": "d4d3d9769af5ef63",
+        "type": "template",
+        "z": "a92a45daba686600",
+        "name": "Sinaleiro",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<div style=\"text-align: center;\">\n    <div id=\"sinaleiro\" style=\"width:50px; height:50px; border-radius:50%; margin:auto; background-color:gray;\"></div>\n    <p style=\"font-weight: bold; margin-top: 10px;\">{{msg.payload}}</p>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(status) {\n        var sinal = document.getElementById(\"sinaleiro\");\n        if (status === \"ok\") {\n            sinal.style.backgroundColor = \"green\";\n        } else if (status === \"espera\") {\n            sinal.style.backgroundColor = \"yellow\";\n        } else if (status === \"erro\") {\n            sinal.style.backgroundColor = \"red\";\n        } else {\n            sinal.style.backgroundColor = \"gray\";\n        }\n    });\n})(scope);\n</script>",
+        "output": "str",
+        "x": 1440,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71013736cecb28eb",
+        "type": "function",
+        "z": "a92a45daba686600",
+        "name": "function 1",
+        "func": "let passo = msg.payload;\nlet estado = \"\";\n\nif (passo === 0) {\n    estado = \"erro\";\n} else if (passo >= 1 && passo <= 4) {\n    estado = \"ok\";\n} else {\n    estado = \"espera\";\n}\n\nmsg.payload = estado;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 720,
+        "wires": [
+            [
+                "d4d3d9769af5ef63"
+            ]
+        ]
+    },
+    {
+        "id": "3163a9f096023fca",
+        "type": "OpcUa-Client",
+        "z": "a92a45daba686600",
+        "endpoint": "e2335b21f5a32b4b",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 760,
+        "y": 560,
+        "wires": [
+            [
+                "f1e853a333126927",
+                "e4133fd937767549",
+                "f6db358d3d3f4acf"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3832485931b315f5",
+        "type": "OpcUa-Item",
+        "z": "a92a45daba686600",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.passo",
+        "datatype": "Int8",
+        "value": "",
+        "name": "Passo",
+        "x": 570,
+        "y": 580,
+        "wires": [
+            [
+                "3163a9f096023fca"
+            ]
+        ]
+    },
+    {
+        "id": "e4e53afab4efd96b",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://190.201.100.82:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "69cd48806edf66d9",
+        "type": "ui_group",
+        "name": "Start/Stop",
+        "tab": "d75c0ccce3e42ca9",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1a44c8167e924d49",
+        "type": "ui_group",
+        "name": "Passo do Processo",
+        "tab": "d75c0ccce3e42ca9",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e46c860c15925d13",
+        "type": "ui_group",
+        "name": "Estado Cilindros",
+        "tab": "d75c0ccce3e42ca9",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e2335b21f5a32b4b",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://190.201.100.82:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "d75c0ccce3e42ca9",
+        "type": "ui_tab",
+        "name": "Tela Inicial Turma B",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
