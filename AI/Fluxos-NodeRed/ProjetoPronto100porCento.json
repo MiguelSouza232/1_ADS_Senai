@@ -1,0 +1,19 @@
+[
+    {
+        "id": "e3a7deff13b68729",
+        "type": "file",
+        "z": "a92a45daba686600",
+        "name": "Grava Eventos",
+        "filename": "C:\\Users\\CLP_ADS\\Desktop\\1_ADS_Senai\\AI\\Projeto_AtuacaoCilindro\\ArquivoCsv\\eventos.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 620,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    }
+]
