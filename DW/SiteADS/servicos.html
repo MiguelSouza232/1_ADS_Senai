@@ -2,7 +2,7 @@
 <html lang="pt">
 
 <head>
-  <link href="css/style_produtos.css" rel="stylesheet" <meta charset="UTF-8" />
+  <link href="css/style_servicos.css" rel="stylesheet"/>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
   <title>Serviços</title>
   <script>
@@ -11,6 +11,12 @@
     data=new Date
     dia=new Array("Domingo","Segunda-Feira","Terça-Feira","Quarta-Feira","Quinta-Feira","Sexta-Feira","Sábado")
     mes=new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro")
+
+    //Função para abrir a POP de detalhes do produto
+    function abrirDetalhes(nome,imagem,descricao){
+      const url=`pop_servicos.html?nomeProd=${encodeURIComponent(nome)}&imagemProd=${encodeURIComponent(imagem)}&descricaoProd=${encodeURIComponent(descricao)}`
+      window.open(url, "_blank", "width=800,height=700")
+    }
   </script>
 </head>
 
@@ -44,19 +50,19 @@
       Se tiver dúvidas, estou à disposição para ajudar!
     </p>
     <div class="container">
-      <div class="card">
+      <div class="card" onclick="abrirDetalhes('Remixes','img/icone-servico.jpg','Descrição do Produto')">
         <img src="img/icone-servico.jpg">
         <h2>Remixes</h2>
         <p>Remixes de qualquer gênero</p>
         <span class="preco">R$ 150/cada</span>
       </div>
-      <div class="card">
-        <img src="img/icone-servico2.jpg">
+      <div class="card" onclick="abrirDetalhes('Sets','img/icone-servico2.jpg','Descrição do Produto')">
+        <img src="img/icone-servico2.jpg" >
         <h2>Sets</h2>
         <p>Sets de qualquer gênero</p>
         <span class="preco">R$ 100/cada</span>
       </div>
-      <div class="card">
+      <div class="card" onclick="abrirDetalhes('Mashups','img/icone-servico3.jpg','Descrição do Produto')">
         <img src="img/icone-servico3.jpg">
         <h2>Mashups</h2>
         <p>Mashups de qualquer gênero</p>
@@ -69,7 +75,7 @@
   <footer>
     <img src="img/SubLogoCelsinho.png" title="Dj Celsinho" class="logo_footer">
     <div class="contatos_footer">
-      <p class="escrita_footer"><i class="fa fa-whatsapp"></i><strong> WhatsApp: </strong><a href="https://api.whatsapp.com/send/?phone=11941340429&text&type=phone_number&app_absent=0" class="whatsapp_link">(11) 11111-9999</a> | <i class="fa fa-instagram"></i><strong> Instagram: </strong><a href="https://www.instagram.com/djcelsinhoo?igsh=MW9paDg1ZDBleHV4" class="insta_link">@djcelsinhoo</p></a>
+      <p class="escrita_footer"><i class="fa fa-whatsapp"></i><strong> WhatsApp: </strong><a href="https://api.whatsapp.com/send/?phone=11941340429&text&type=phone_number&app_absent=0" class="whatsapp_link">(11) 11111-9999</a> | <i class="fa fa-instagram"></i><strong> Instagram: </strong><a href="https://www.instagram.com/djcelsinhoo?igsh=MW9paDg1ZDBleHV4" class="insta_link">@djcelsinhoo</a></p>
     </div>
   </footer>
 </body>

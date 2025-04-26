@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Dj Celsinho</title>
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1 id="nome-produto">Título</h1>
+        <img src="" id="imagem-produto">
+        <p id="descricao-produto">Descrição do serviço</p>
+
+        <!-- Preenchimento das informações -->
+         <script>
+          //Função para capturar os parâmetros
+          function getParametros(info){
+            const urlParametros = new URLSearchParams(window.location.search);
+            return urlParametros.get(info);
+          }
+
+          //Preenche as informações da POP
+          document.getElementById("nome-produto").textContent = getParametros("nomeProd")
+          document.getElementById("imagem-produto").src = getParametros("imagemProd")
+          document.getElementById("descricao-produto").textContent = getParametros("descricaoProd")
+         </script>
+      </div>
+    </main>
+  </body>
+</html>
