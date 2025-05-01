@@ -1,0 +1,43 @@
+[
+    {
+        "id": "c88ba0f60b10a5aa",
+        "type": "ui_template",
+        "z": "a950869b0e6bbc3c",
+        "group": "b410c5d81e1fdc64",
+        "name": "",
+        "order": 2,
+        "width": 9,
+        "height": "6",
+        "format": "<style>\n    table{\n        width: 100%;\n        border-collapse: collapse;\n        font-family: Arial;\n        font-size: 14px;\n    }\n    th,\n    td {\n        padding: 10px;\n        border: 1px solid #ccc;\n        text-align: center;\n        vertical-align: middle;\n    }\n    th {\n        background-color: #800080;\n        color: white;\n    }\n</style>\n\n<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 780,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b410c5d81e1fdc64",
+        "type": "ui_group",
+        "name": "Consulta ao Banco de Dados",
+        "tab": "6cd4aa5950d4776d",
+        "order": 1,
+        "disp": true,
+        "width": "9",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6cd4aa5950d4776d",
+        "type": "ui_tab",
+        "name": "Banco de Dados",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
