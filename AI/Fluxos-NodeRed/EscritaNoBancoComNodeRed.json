@@ -1,0 +1,465 @@
+[
+    {
+        "id": "a950869b0e6bbc3c",
+        "type": "tab",
+        "label": "Fluxo 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d52834b80821d4cb",
+        "type": "function",
+        "z": "a950869b0e6bbc3c",
+        "name": "Montar SQL",
+        "func": "msg.topic = \"SELECT * FROM dados_sensores LIMIT 10\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "7fd03c431a28f731"
+            ]
+        ]
+    },
+    {
+        "id": "7fd03c431a28f731",
+        "type": "mysql",
+        "z": "a950869b0e6bbc3c",
+        "mydb": "d53a8a5c180463df",
+        "name": "Banco de Dados",
+        "x": 570,
+        "y": 640,
+        "wires": [
+            [
+                "09c13d146a17aa84",
+                "d2f423b43260a1be"
+            ]
+        ]
+    },
+    {
+        "id": "d2f423b43260a1be",
+        "type": "debug",
+        "z": "a950869b0e6bbc3c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "09c13d146a17aa84",
+        "type": "function",
+        "z": "a950869b0e6bbc3c",
+        "name": "Formatar HTML",
+        "func": "let dados = msg.payload;\nlet html = `\n<table>\n    <tr>\n        <th>Temperatura(°C)</th>\n        <th>Pressão(bar)</th>\n    </tr>`;\nfor (let linha of dados){\n    html += `\n    <tr>\n        <td>${linha.temperatura}</td>\n        <td>${linha.pressao}</td>\n    </tr>`;\n}\nhtml += '</table>';\nmsg.payload = html;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 720,
+        "wires": [
+            [
+                "c88ba0f60b10a5aa"
+            ]
+        ]
+    },
+    {
+        "id": "dab8dfab53cc1164",
+        "type": "ui_button",
+        "z": "a950869b0e6bbc3c",
+        "name": "",
+        "group": "b410c5d81e1fdc64",
+        "order": 1,
+        "width": 9,
+        "height": 1,
+        "passthru": false,
+        "label": "Leitura de Dados",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 640,
+        "wires": [
+            [
+                "d52834b80821d4cb"
+            ]
+        ]
+    },
+    {
+        "id": "c88ba0f60b10a5aa",
+        "type": "ui_template",
+        "z": "a950869b0e6bbc3c",
+        "group": "b410c5d81e1fdc64",
+        "name": "",
+        "order": 2,
+        "width": 9,
+        "height": "6",
+        "format": "<style>\n    table{\n        width: 100%;\n        border-collapse: collapse;\n        font-family: Arial;\n        font-size: 14px;\n    }\n    th,\n    td {\n        padding: 10px;\n        border: 1px solid #ccc;\n        text-align: center;\n        vertical-align: middle;\n    }\n    th {\n        background-color: #800080;\n        color: white;\n    }\n</style>\n\n<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 780,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a6c224ac99d8a4f7",
+        "type": "ui_button",
+        "z": "a950869b0e6bbc3c",
+        "name": "",
+        "group": "b410c5d81e1fdc64",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Obter Dados",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "1420f7d1ffcf9709",
+                "7ffb1815211a61b2",
+                "d4aa486626ad4d0f"
+            ]
+        ]
+    },
+    {
+        "id": "1420f7d1ffcf9709",
+        "type": "OpcUa-Item",
+        "z": "a950869b0e6bbc3c",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.temperatura",
+        "datatype": "Float",
+        "value": "",
+        "name": "Temperatura",
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "fd4bc80e0c310bd0"
+            ]
+        ]
+    },
+    {
+        "id": "fd4bc80e0c310bd0",
+        "type": "OpcUa-Client",
+        "z": "a950869b0e6bbc3c",
+        "endpoint": "4fc7f20db0c38ca9",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 600,
+        "y": 160,
+        "wires": [
+            [
+                "1c9c5d6716065d4d",
+                "6522415043a9f05a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "1c9c5d6716065d4d",
+        "type": "function",
+        "z": "a950869b0e6bbc3c",
+        "name": "Var Global temp",
+        "func": "let temperatura = msg.payload;\nglobal.set(\"temperatura\", temperatura);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6522415043a9f05a",
+        "type": "debug",
+        "z": "a950869b0e6bbc3c",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7b43c0b5de453271",
+        "type": "comment",
+        "z": "a950869b0e6bbc3c",
+        "name": "Leitura Dados - Tabela",
+        "info": "",
+        "x": 480,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "dbb2e7e2eb565b53",
+        "type": "comment",
+        "z": "a950869b0e6bbc3c",
+        "name": "Leitura CLP - Escrita BD",
+        "info": "",
+        "x": 510,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7ffb1815211a61b2",
+        "type": "OpcUa-Item",
+        "z": "a950869b0e6bbc3c",
+        "item": "ns=4;s=|var|XP325.Application.Node_Red.pressao",
+        "datatype": "Float",
+        "value": "",
+        "name": "Pressao",
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "737efa97cd078aa1"
+            ]
+        ]
+    },
+    {
+        "id": "737efa97cd078aa1",
+        "type": "OpcUa-Client",
+        "z": "a950869b0e6bbc3c",
+        "endpoint": "4fc7f20db0c38ca9",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "useTransport": false,
+        "maxChunkCount": 1,
+        "maxMessageSize": 8192,
+        "receiveBufferSize": 8192,
+        "sendBufferSize": 8192,
+        "setstatusandtime": false,
+        "keepsessionalive": false,
+        "name": "",
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "10b0cd86b50af937",
+                "f96310db471add6c"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "10b0cd86b50af937",
+        "type": "function",
+        "z": "a950869b0e6bbc3c",
+        "name": "Var Global pressao",
+        "func": "let pressao = msg.payload;\nglobal.set(\"pressao\", pressao);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f96310db471add6c",
+        "type": "debug",
+        "z": "a950869b0e6bbc3c",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d4aa486626ad4d0f",
+        "type": "delay",
+        "z": "a950869b0e6bbc3c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "4bbba326dbb56617"
+            ]
+        ]
+    },
+    {
+        "id": "4bbba326dbb56617",
+        "type": "function",
+        "z": "a950869b0e6bbc3c",
+        "name": "Salvar Valores no B.D.",
+        "func": "let temperatura = global.get(\"temperatura\").toFixed(2);\nlet pressao = global.get(\"pressao\").toFixed(2);\nmsg.topic = `INSERT INTO dados_sensores VALUES(temperatura, pressao)\n(${temperatura}, ${pressao})`;\nmsg.payload = \"temp: \" + temperatura + \" pressão: \" + pressao;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 400,
+        "wires": [
+            [
+                "017cd7750beafea2"
+            ]
+        ]
+    },
+    {
+        "id": "017cd7750beafea2",
+        "type": "mysql",
+        "z": "a950869b0e6bbc3c",
+        "mydb": "d53a8a5c180463df",
+        "name": "B.D.",
+        "x": 810,
+        "y": 400,
+        "wires": [
+            [
+                "07ac11523c32de36"
+            ]
+        ]
+    },
+    {
+        "id": "07ac11523c32de36",
+        "type": "debug",
+        "z": "a950869b0e6bbc3c",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "d53a8a5c180463df",
+        "type": "MySQLdatabase",
+        "name": "MySQL_B",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "AI_B",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "b410c5d81e1fdc64",
+        "type": "ui_group",
+        "name": "Consulta ao Banco de Dados",
+        "tab": "6cd4aa5950d4776d",
+        "order": 1,
+        "disp": true,
+        "width": "9",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4fc7f20db0c38ca9",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://190.201.100.82:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "none": true,
+        "login": false,
+        "usercert": false,
+        "usercertificate": "",
+        "userprivatekey": ""
+    },
+    {
+        "id": "6cd4aa5950d4776d",
+        "type": "ui_tab",
+        "name": "Banco de Dados",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
