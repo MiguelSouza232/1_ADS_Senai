@@ -50,19 +50,24 @@
       Se tiver dúvidas, estou à disposição para ajudar!
     </p>
     <div class="container">
-      <div class="card" onclick="abrirDetalhes('Remixes','img/icone-servico.jpg','Descrição do Produto')">
+      <script>
+        //Define a descrição do produto
+        desc_produto="Remixes de gêneros variados...... \n\nPeça o seu agora";
+        slider=['img/icone-servico.jpg','img/icone-servico2.jpg','img/icone-servico3.jpg']
+      </script>
+        <div class="card" onclick="abrirDetalhes('Remixes','img/icone-servico.jpg', slider, desc_produto)">
         <img src="img/icone-servico.jpg">
         <h2>Remixes</h2>
         <p>Remixes de qualquer gênero</p>
         <span class="preco">R$ 150/cada</span>
       </div>
-      <div class="card" onclick="abrirDetalhes('Sets','img/icone-servico2.jpg','Descrição do Produto')">
+      <div class="card" onclick="abrirDetalhes('Sets','img/icone-servico2.jpg', desc_produto)">
         <img src="img/icone-servico2.jpg" >
         <h2>Sets</h2>
         <p>Sets de qualquer gênero</p>
         <span class="preco">R$ 100/cada</span>
       </div>
-      <div class="card" onclick="abrirDetalhes('Mashups','img/icone-servico3.jpg','Descrição do Produto')">
+      <div class="card" onclick="abrirDetalhes('Mashups','img/icone-servico3.jpg', desc_produto)">
         <img src="img/icone-servico3.jpg">
         <h2>Mashups</h2>
         <p>Mashups de qualquer gênero</p>
