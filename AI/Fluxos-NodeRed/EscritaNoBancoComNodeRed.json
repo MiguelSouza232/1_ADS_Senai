@@ -375,7 +375,7 @@
         "type": "function",
         "z": "a950869b0e6bbc3c",
         "name": "Salvar Valores no B.D.",
-        "func": "let temperatura = global.get(\"temperatura\").toFixed(2);\nlet pressao = global.get(\"pressao\").toFixed(2);\nmsg.topic = `INSERT INTO dados_sensores VALUES(temperatura, pressao)\n(${temperatura}, ${pressao})`;\nmsg.payload = \"temp: \" + temperatura + \" pressão: \" + pressao;\nreturn msg;",
+        "func": "let temperatura = global.get(\"temperatura\").toFixed(2);\nlet pressao = global.get(\"pressao\").toFixed(2);\nmsg.topic = \"INSERT INTO dados_sensores (tempertatura, pressao) VALUES (\" + temperatura + \", \" + pressao + \");\";\nmsg.payload = \"temp: \" + temperatura + \" pressão: \" + pressao;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -387,20 +387,6 @@
         "wires": [
             [
                 "017cd7750beafea2"
-            ]
-        ]
-    },
-    {
-        "id": "017cd7750beafea2",
-        "type": "mysql",
-        "z": "a950869b0e6bbc3c",
-        "mydb": "d53a8a5c180463df",
-        "name": "B.D.",
-        "x": 810,
-        "y": 400,
-        "wires": [
-            [
-                "07ac11523c32de36"
             ]
         ]
     },
@@ -419,6 +405,20 @@
         "x": 960,
         "y": 400,
         "wires": []
+    },
+    {
+        "id": "017cd7750beafea2",
+        "type": "mysql",
+        "z": "a950869b0e6bbc3c",
+        "mydb": "d53a8a5c180463df",
+        "name": "B.D.",
+        "x": 810,
+        "y": 400,
+        "wires": [
+            [
+                "07ac11523c32de36"
+            ]
+        ]
     },
     {
         "id": "d53a8a5c180463df",
