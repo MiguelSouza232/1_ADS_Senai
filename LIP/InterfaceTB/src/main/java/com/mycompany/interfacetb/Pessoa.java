@@ -5,7 +5,7 @@
 package com.mycompany.interfacetb;
 
 public class Pessoa {
-    private String nome, idade, sexo, profissao, receberemail;
+    private String nome, idade, sexo, profissao, receberemail, news;
 
     public String getNome() {
         return nome;
@@ -47,10 +47,23 @@ public class Pessoa {
         this.receberemail = receberemail;
     }
     
+    public String getNews() {
+        return news;
+    }
+
+    public void setNews(String news) {
+        this.news = news;
+    }
+    
     public String status() {
-        return "Nome: " + this.nome +
+        return 
+                "\nNome: " + this.nome +
                 "\nIdade: " + this.idade +
-                "\nProfissao: " + this.profissao;
+                "\nProfissao: " + this.profissao +
+                "\nSexo: " + this.sexo +
+                "\nReceber Email? " + this.receberemail +
+                "\nNewsletter? " + this.news +
+                "\n";
     }
     
     
