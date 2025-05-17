@@ -36,7 +36,11 @@ body {
   font-weight: regular;
   color: white;
   list-style: none;
-  margin-left: 90px;
+  margin-left: 160px;
+}
+
+#slider-img {
+  width: 60%;
 }
 
 .slider {
