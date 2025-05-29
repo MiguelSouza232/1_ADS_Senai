@@ -12,8 +12,12 @@
     <Node name="Application">
       <Node name="Node_Red">
         <Node name="atuador" type="T_BOOL" access="ReadWrite" />
+        <Node name="atuador_ir" type="T_BOOL" access="ReadWrite" />
+        <Node name="atuador_voltar" type="T_BOOL" access="ReadWrite" />
         <Node name="start_maq" type="T_BOOL" access="ReadWrite" />
+        <Node name="start_simples" type="T_BOOL" access="ReadWrite" />
         <Node name="stop_maq" type="T_BOOL" access="ReadWrite" />
+        <Node name="stop_simples" type="T_BOOL" access="ReadWrite" />
       </Node>
     </Node>
   </NodeList>
