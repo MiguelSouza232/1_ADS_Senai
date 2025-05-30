@@ -14,6 +14,7 @@ public class CadastroDeVenda {
     private String Imovel;
     private String Comprador;
     private String Corretor;
+    private String FormaPagamento;
 
     public String getData() {
         return Data;
@@ -55,9 +56,17 @@ public class CadastroDeVenda {
         this.Corretor = Corretor;
     }
     
+    public String getFormaPagamento() {
+        return FormaPagamento;
+    }
+
+    public void setFormaPagamento(String FormaPagamento) {
+        this.FormaPagamento = FormaPagamento;
+    }
+    
     @Override
     public String toString() {
-        return "Data=" + Data + "\n Valor=" + Valor + "\n Imovel=" + Imovel + "\n Comprador=" + Comprador + "\n Corretor=" + Corretor;
+        return "Data=" + Data + "\n Valor=" + Valor + "\n Imovel=" + Imovel + "\n Comprador=" + Comprador + "\n Corretor=" + Corretor + "\nFormaPagamento=" + FormaPagamento;
     }
     
 }

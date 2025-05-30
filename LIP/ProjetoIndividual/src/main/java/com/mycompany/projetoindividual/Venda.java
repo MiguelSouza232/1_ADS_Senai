@@ -47,9 +47,10 @@ public class Venda extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         area = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        input_formaPagamento = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 400));
 
@@ -63,7 +64,8 @@ public class Venda extends javax.swing.JFrame {
 
         btn_menu.setBackground(new java.awt.Color(153, 0, 0));
         btn_menu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_menu.setText("VOLTAR");
+        btn_menu.setForeground(new java.awt.Color(255, 255, 255));
+        btn_menu.setText("←");
         btn_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_menuActionPerformed(evt);
@@ -73,7 +75,7 @@ public class Venda extends javax.swing.JFrame {
         btn_limparCampo.setBackground(new java.awt.Color(102, 102, 102));
         btn_limparCampo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_limparCampo.setForeground(new java.awt.Color(255, 255, 255));
-        btn_limparCampo.setText("CANCELAR");
+        btn_limparCampo.setText("LIMPAR");
         btn_limparCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_limparCampoActionPerformed(evt);
@@ -82,6 +84,7 @@ public class Venda extends javax.swing.JFrame {
 
         btn_cadastrarCliente.setBackground(new java.awt.Color(153, 0, 0));
         btn_cadastrarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_cadastrarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btn_cadastrarCliente.setText("CADASTRAR");
         btn_cadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +149,7 @@ public class Venda extends javax.swing.JFrame {
         select_comprador.setBackground(new java.awt.Color(204, 204, 204));
         select_comprador.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         select_comprador.setForeground(new java.awt.Color(153, 0, 0));
-        select_comprador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ana Paula Souza", "Carlos Eduardo Lima", "Juliana Mendes", "Bruno Rocha", "Mariana Ferreira", "Lucas Martins", "Fernanda Dias", "Rodrigo Alves", "Patrícia Gomes", "Thiago Santana" }));
+        select_comprador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ana Lima", "Carlos Souza", "Beatriz Silva", "Daniel Costa", "Eduarda Ramos", "Fernando Lima", "Gabriela Pinto", "Henrique Alves", "Isabela Rocha", "João Martins", "Karen Souza" }));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(153, 0, 0));
@@ -155,7 +158,7 @@ public class Venda extends javax.swing.JFrame {
         select_corretor.setBackground(new java.awt.Color(204, 204, 204));
         select_corretor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         select_corretor.setForeground(new java.awt.Color(153, 0, 0));
-        select_corretor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "João Oliveira", "Renata Lima", "Felipe Silva", "Luciana Mendes", "Gabriel Costa", "Isabela Moreira", "Roberto Souza", "Camila Ribeiro", "Daniel Freitas", "Elaine Martins" }));
+        select_corretor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lucas Rocha", "Mariana Prado", "Rafael Nunes", "Sofia Carvalho", "Thiago Melo", "Vanessa Moura", "Bruno Ferreira", "Paula Reis", "Diego Martins", "Amanda Torres" }));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 0, 0));
@@ -164,6 +167,26 @@ public class Venda extends javax.swing.JFrame {
         area.setColumns(20);
         area.setRows(5);
         jScrollPane2.setViewportView(area);
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(175, 0, 31));
+        jLabel10.setText("Forma de Pagamento:");
+
+        input_formaPagamento.setBackground(new java.awt.Color(204, 204, 204));
+        input_formaPagamento.setText("Digite a forma de pagamento");
+        input_formaPagamento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                input_formaPagamentoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                input_formaPagamentoFocusLost(evt);
+            }
+        });
+        input_formaPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_formaPagamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,48 +197,49 @@ public class Venda extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(84, 84, 84))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(input_dataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(input_valorVenda))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(input_formaPagamento))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(select_comprador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(select_imovel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(select_corretor, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(2, 2, 2)))
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn_cadastrarCliente)
                                 .addGap(18, 18, 18)
-                                .addComponent(btn_limparCampo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(input_dataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel1)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(input_valorVenda))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(select_comprador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(select_imovel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel9)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(select_corretor, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(2, 2, 2))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(45, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_menu))))
+                                .addComponent(btn_limparCampo))))
+                    .addComponent(btn_menu))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,8 +249,9 @@ public class Venda extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addComponent(jLabel8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_menu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
@@ -249,16 +274,19 @@ public class Venda extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
                                     .addComponent(select_corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_cadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_limparCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel10)
+                                    .addComponent(input_formaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2))))
-                    .addComponent(btn_menu))
-                .addContainerGap(56, Short.MAX_VALUE))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_limparCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -301,6 +329,7 @@ public class Venda extends javax.swing.JFrame {
             v.setImovel((String) select_imovel.getSelectedItem());
             v.setComprador((String) select_comprador.getSelectedItem());
             v.setCorretor((String) select_corretor.getSelectedItem());
+            v.setFormaPagamento(input_formaPagamento.getText());
 
             area.setText(v.toString());
         }
@@ -346,6 +375,24 @@ public class Venda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_select_imovelActionPerformed
 
+    private void input_formaPagamentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_formaPagamentoFocusGained
+        // TODO add your handling code here:
+        if (input_formaPagamento.getText().equals("Digite a forma de pagamento")) {
+            input_formaPagamento.setText("");
+        }
+    }//GEN-LAST:event_input_formaPagamentoFocusGained
+
+    private void input_formaPagamentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_formaPagamentoFocusLost
+        // TODO add your handling code here:
+        if (input_formaPagamento.getText().equals("")) {
+            input_formaPagamento.setText("Digite a forma de pagamento");
+        }
+    }//GEN-LAST:event_input_formaPagamentoFocusLost
+
+    private void input_formaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_formaPagamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_formaPagamentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -387,8 +434,10 @@ public class Venda extends javax.swing.JFrame {
     private javax.swing.JButton btn_limparCampo;
     private javax.swing.JButton btn_menu;
     private javax.swing.JTextField input_dataVenda;
+    private javax.swing.JTextField input_formaPagamento;
     private javax.swing.JTextField input_valorVenda;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

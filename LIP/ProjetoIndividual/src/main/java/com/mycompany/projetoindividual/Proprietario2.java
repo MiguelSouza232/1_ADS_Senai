@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author 25170626
  */
-public class Proprietario extends javax.swing.JFrame {
+public class Proprietario2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Proprietario
+     * Creates new form prop2
      */
-    public Proprietario() {
+    public Proprietario2() {
         initComponents();
     }
 
@@ -57,9 +57,7 @@ public class Proprietario extends javax.swing.JFrame {
         input_nacionalidade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(700, 400));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -280,20 +278,17 @@ public class Proprietario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
-        dispose();
-        new MenuOpcoes().setVisible(true);
-    }//GEN-LAST:event_btn_menuActionPerformed
 
     private void btn_limparCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparCampoActionPerformed
         // TODO add your handling code here:
@@ -347,6 +342,10 @@ public class Proprietario extends javax.swing.JFrame {
             input_dataNascimento.setText("Digite sua data de nascimento aqui...");
         }
     }//GEN-LAST:event_input_dataNascimentoFocusLost
+
+    private void input_dataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_dataNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_dataNascimentoActionPerformed
 
     private void input_nomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_nomeFocusGained
         // TODO add your handling code here:
@@ -426,6 +425,11 @@ public class Proprietario extends javax.swing.JFrame {
         btn_masculino.setSelected(false);
     }//GEN-LAST:event_btn_outroActionPerformed
 
+    private void btn_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menuActionPerformed
+        dispose();
+        new MenuOpcoes().setVisible(true);
+    }//GEN-LAST:event_btn_menuActionPerformed
+
     private void input_profissaoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_profissaoFocusGained
         // TODO add your handling code here:
         if (input_profissao.getText().equals("Digite sua profissão aqui")) {
@@ -454,10 +458,6 @@ public class Proprietario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_input_nacionalidadeFocusLost
 
-    private void input_dataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_dataNascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_input_dataNascimentoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -475,20 +475,21 @@ public class Proprietario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Proprietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proprietario2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Proprietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proprietario2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Proprietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proprietario2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Proprietario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proprietario2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Proprietario().setVisible(true);
+                new Proprietario2().setVisible(true);
             }
         });
     }

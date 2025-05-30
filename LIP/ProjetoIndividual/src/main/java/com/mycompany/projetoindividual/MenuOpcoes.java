@@ -37,7 +37,6 @@ public class MenuOpcoes extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 400));
 
@@ -181,12 +180,12 @@ public class MenuOpcoes extends javax.swing.JFrame {
 
     private void btn_cadastroProrietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroProrietarioActionPerformed
         dispose();
-        new Proprietario().setVisible(true);
+        new Proprietario2().setVisible(true);
     }//GEN-LAST:event_btn_cadastroProrietarioActionPerformed
 
     private void btn_cadastroImoveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroImoveisActionPerformed
         dispose();
-        new Imovel().setVisible(true);
+        new Imovel2().setVisible(true);
     }//GEN-LAST:event_btn_cadastroImoveisActionPerformed
 
     private void btn_cadastroLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroLocacaoActionPerformed

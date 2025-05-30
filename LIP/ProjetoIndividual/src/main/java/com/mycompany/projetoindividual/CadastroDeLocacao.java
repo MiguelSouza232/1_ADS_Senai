@@ -15,6 +15,7 @@ public class CadastroDeLocacao {
     private String Imovel;
     private String Locatario;
     private String Corretor;
+    private String FormaPagamento;
 
     public String getDataInicio() {
         return DataInicio;
@@ -64,9 +65,17 @@ public class CadastroDeLocacao {
         this.Corretor = Corretor;
     }
     
+    public String getFormaPagamento() {
+        return FormaPagamento;
+    }
+
+    public void setFormaPagamento(String FormaPagamento) {
+        this.FormaPagamento = FormaPagamento;
+    }
+    
     @Override
     public String toString() {
-        return "DataInicio=" + DataInicio + "\n DataFim=" + DataFim + "\n Valor=" + Valor + "\n Imovel=" + Imovel + "\n Locatario=" + Locatario + "\n Corretor=" + Corretor;
+        return "DataInicio=" + DataInicio + "\n DataFim=" + DataFim + "\n Valor=" + Valor + "\n Imovel=" + Imovel + "\n Locatario=" + Locatario + "\n Corretor=" + Corretor + "\nFormaPagamento=" + FormaPagamento;
     }
     
 }

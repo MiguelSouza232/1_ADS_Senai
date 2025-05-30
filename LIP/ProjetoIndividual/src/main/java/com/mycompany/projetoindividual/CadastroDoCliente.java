@@ -15,6 +15,12 @@ public class CadastroDoCliente {
     private String Email;
     private String DataNascimento;
     private String Genero;
+    private String Endereco;
+    private String EstadoCivil;
+
+    public String getEndereco() {
+        return Endereco;
+    }
 
     public String getNome() {
         return Nome;
@@ -64,9 +70,23 @@ public class CadastroDoCliente {
         this.Genero = Genero;
     }
     
+     public void setEndereco(String Endereco) {
+        this.Endereco = Endereco;
+    }
+
+    public String getEstadoCivil() {
+        return EstadoCivil;
+    }
+
+    public void setEstadoCivil(String EstadoCivil) {
+        this.EstadoCivil = EstadoCivil;
+    }
+
     @Override
     public String toString() {
-        return "Nome=" + Nome + "\n Cpf=" + Cpf + "\n Telefone=" + Telefone + "\n Email=" + Email + "\n DataNascimento=" + DataNascimento + "\n Genero=" + Genero;
+        return "Nome=" + Nome + "\nCpf=" + Cpf + "\nTelefone=" + Telefone + "\nEmail=" + Email + "\nDataNascimento=" + DataNascimento + "\nGenero=" + Genero + "\nEndereco=" + Endereco + "\nEstadoCivil=" + EstadoCivil;
     }
+    
+    
     
 }

@@ -40,7 +40,6 @@ public class TipoImoveis extends javax.swing.JFrame {
         area = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 400));
 
@@ -55,7 +54,7 @@ public class TipoImoveis extends javax.swing.JFrame {
         btn_menu.setBackground(new java.awt.Color(175, 0, 31));
         btn_menu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_menu.setForeground(new java.awt.Color(255, 255, 255));
-        btn_menu.setText("VOLTAR");
+        btn_menu.setText("←");
         btn_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_menuActionPerformed(evt);
@@ -65,7 +64,7 @@ public class TipoImoveis extends javax.swing.JFrame {
         btn_limparCampo.setBackground(new java.awt.Color(102, 102, 102));
         btn_limparCampo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_limparCampo.setForeground(new java.awt.Color(255, 255, 255));
-        btn_limparCampo.setText("CANCELAR");
+        btn_limparCampo.setText("LIMPAR");
         btn_limparCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_limparCampoActionPerformed(evt);
@@ -128,15 +127,15 @@ public class TipoImoveis extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_menu))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_menu)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_menu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -163,7 +162,7 @@ public class TipoImoveis extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

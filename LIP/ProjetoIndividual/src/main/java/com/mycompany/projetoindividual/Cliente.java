@@ -50,6 +50,10 @@ public class Cliente extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         area = new javax.swing.JTextArea();
+        JLabel10 = new javax.swing.JLabel();
+        input_endereco = new javax.swing.JTextField();
+        endereco1 = new javax.swing.JLabel();
+        input_estadoCivil = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +82,7 @@ public class Cliente extends javax.swing.JFrame {
         btn_menu.setBackground(new java.awt.Color(175, 0, 31));
         btn_menu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_menu.setForeground(new java.awt.Color(255, 255, 255));
-        btn_menu.setText("VOLTAR");
+        btn_menu.setText("←");
         btn_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_menuActionPerformed(evt);
@@ -88,7 +92,7 @@ public class Cliente extends javax.swing.JFrame {
         btn_limparCampo.setBackground(new java.awt.Color(102, 102, 102));
         btn_limparCampo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_limparCampo.setForeground(new java.awt.Color(255, 255, 255));
-        btn_limparCampo.setText("CANCELAR");
+        btn_limparCampo.setText("LIMPAR");
         btn_limparCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_limparCampoActionPerformed(evt);
@@ -106,6 +110,7 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         input_dataNascimento.setBackground(new java.awt.Color(204, 204, 204));
+        input_dataNascimento.setText("Digite sua data de nascimento aqui");
         input_dataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_dataNascimentoFocusGained(evt);
@@ -121,6 +126,7 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         input_nome.setBackground(new java.awt.Color(204, 204, 204));
+        input_nome.setText("Digite seu nome aqui");
         input_nome.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_nomeFocusGained(evt);
@@ -136,6 +142,7 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         input_cpf.setBackground(new java.awt.Color(204, 204, 204));
+        input_cpf.setText("Digite aqui seu CPF");
         input_cpf.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_cpfFocusGained(evt);
@@ -146,6 +153,7 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         input_telefone.setBackground(new java.awt.Color(204, 204, 204));
+        input_telefone.setText("Digite seu telefone aqui");
         input_telefone.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_telefoneFocusGained(evt);
@@ -164,6 +172,7 @@ public class Cliente extends javax.swing.JFrame {
         jLabel9.setText("Gênero:");
 
         input_email.setBackground(new java.awt.Color(204, 204, 204));
+        input_email.setText("Digite seu email aqui");
         input_email.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 input_emailFocusGained(evt);
@@ -213,56 +222,103 @@ public class Cliente extends javax.swing.JFrame {
         area.setRows(5);
         jScrollPane2.setViewportView(area);
 
+        JLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        JLabel10.setForeground(new java.awt.Color(175, 0, 31));
+        JLabel10.setText("Endereço");
+
+        input_endereco.setBackground(new java.awt.Color(204, 204, 204));
+        input_endereco.setText("Digite seu endereço aqui");
+        input_endereco.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                input_enderecoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                input_enderecoFocusLost(evt);
+            }
+        });
+        input_endereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_enderecoActionPerformed(evt);
+            }
+        });
+
+        endereco1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        endereco1.setForeground(new java.awt.Color(175, 0, 31));
+        endereco1.setText("Estado Civil");
+
+        input_estadoCivil.setBackground(new java.awt.Color(204, 204, 204));
+        input_estadoCivil.setText("Digite seu estado civil aqui");
+        input_estadoCivil.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                input_estadoCivilFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                input_estadoCivilFocusLost(evt);
+            }
+        });
+        input_estadoCivil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_estadoCivilActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(endereco1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(input_estadoCivil))
                     .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(input_cpf))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(input_email))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(input_nome))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(input_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(input_dataNascimento))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btn_cadastrarCliente)
-                                .addGap(20, 20, 20)
-                                .addComponent(btn_limparCampo))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_feminino)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_masculino)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_outro)))))
-                .addGap(34, 34, 34)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(input_cpf))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(input_email))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(input_nome))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(input_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(input_dataNascimento))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_feminino)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_masculino)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_outro))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(JLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(input_endereco)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_menu))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btn_cadastrarCliente)
+                        .addGap(20, 20, 20)
+                        .addComponent(btn_limparCampo)))
+                .addGap(49, 49, 49))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_menu)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap(580, Short.MAX_VALUE)
@@ -281,7 +337,11 @@ public class Cliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane2)
-                        .addGap(80, 80, 80))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_limparCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_cadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -308,11 +368,15 @@ public class Cliente extends javax.swing.JFrame {
                             .addComponent(btn_feminino)
                             .addComponent(btn_masculino)
                             .addComponent(btn_outro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_limparCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_cadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28))))
+                            .addComponent(JLabel10)
+                            .addComponent(input_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(endereco1)
+                            .addComponent(input_estadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(16, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(70, 70, 70)
@@ -348,6 +412,8 @@ public class Cliente extends javax.swing.JFrame {
         btn_masculino.setSelected(false);
         btn_feminino.setSelected(false);
         btn_outro.setSelected(false);
+        input_endereco.setText("");
+        input_estadoCivil.setText("");
     }//GEN-LAST:event_btn_limparCampoActionPerformed
 
     private void btn_cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarClienteActionPerformed
@@ -367,6 +433,8 @@ public class Cliente extends javax.swing.JFrame {
             }else{
                 c.setGenero("Outro");
             }
+            c.setEndereco(input_endereco.getText());
+            c.setEstadoCivil(input_estadoCivil.getText());
 
             area.setText(c.toString());
         }
@@ -374,7 +442,7 @@ public class Cliente extends javax.swing.JFrame {
 
     private void input_dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_dataNascimentoFocusGained
         // TODO add your handling code here:
-        if (input_dataNascimento.getText().equals("Digite sua data de nascimento aqui...")) {
+        if (input_dataNascimento.getText().equals("Digite sua data de nascimento aqui")) {
             input_dataNascimento.setText("");
         }
     }//GEN-LAST:event_input_dataNascimentoFocusGained
@@ -382,12 +450,12 @@ public class Cliente extends javax.swing.JFrame {
     private void input_dataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_dataNascimentoFocusLost
         // TODO add your handling code here:
         if (input_dataNascimento.getText().equals("")) {
-            input_dataNascimento.setText("Digite sua data de nascimento aqui...");
+            input_dataNascimento.setText("Digite sua data de nascimento aqui");
         }
     }//GEN-LAST:event_input_dataNascimentoFocusLost
 
     private void input_nomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_nomeFocusGained
-        if (input_nome.getText().equals("Digite seu nome aqui...")) {
+        if (input_nome.getText().equals("Digite seu nome aqui")) {
             input_nome.setText("");
         }
     }//GEN-LAST:event_input_nomeFocusGained
@@ -395,7 +463,7 @@ public class Cliente extends javax.swing.JFrame {
     private void input_nomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_nomeFocusLost
         // TODO add your handling code here:
         if (input_nome.getText().equals("")) {
-            input_nome.setText("Digite seu nome aqui...");
+            input_nome.setText("Digite seu nome aqui");
         }
     }//GEN-LAST:event_input_nomeFocusLost
 
@@ -413,13 +481,13 @@ public class Cliente extends javax.swing.JFrame {
     private void input_cpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_cpfFocusLost
         // TODO add your handling code here:
         if (input_cpf.getText().equals("")) {
-            input_cpf.setText("Digite seu CPF aqui...");
+            input_cpf.setText("Digite seu CPF aqui");
         }
     }//GEN-LAST:event_input_cpfFocusLost
 
     private void input_telefoneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_telefoneFocusGained
         // TODO add your handling code here:
-        if (input_telefone.getText().equals("Digite seu telefone aqui...")) {
+        if (input_telefone.getText().equals("Digite seu telefone aqui")) {
             input_telefone.setText("");
         }
     }//GEN-LAST:event_input_telefoneFocusGained
@@ -427,13 +495,13 @@ public class Cliente extends javax.swing.JFrame {
     private void input_telefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_telefoneFocusLost
         // TODO add your handling code here:
         if (input_telefone.getText().equals("")) {
-            input_telefone.setText("Digite seu telefone aqui...");
+            input_telefone.setText("Digite seu telefone aqui");
         }
     }//GEN-LAST:event_input_telefoneFocusLost
 
     private void input_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_emailFocusGained
         // TODO add your handling code here:
-        if (input_email.getText().equals("Digite seu email aqui...")) {
+        if (input_email.getText().equals("Digite seu email aqui")) {
             input_email.setText("");
         }
     }//GEN-LAST:event_input_emailFocusGained
@@ -441,7 +509,7 @@ public class Cliente extends javax.swing.JFrame {
     private void input_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_emailFocusLost
         // TODO add your handling code here:
         if (input_email.getText().equals("")) {
-            input_email.setText("Digite seu email aqui...");
+            input_email.setText("Digite seu email aqui");
         }
     }//GEN-LAST:event_input_emailFocusLost
 
@@ -467,6 +535,43 @@ public class Cliente extends javax.swing.JFrame {
     private void input_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_input_emailActionPerformed
+
+    private void input_enderecoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_enderecoFocusGained
+        // TODO add your handling code here:
+        if (input_endereco.getText().equals("Digite seu endereço aqui")) {
+            input_endereco.setText("");
+        }
+    }//GEN-LAST:event_input_enderecoFocusGained
+
+    private void input_enderecoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_enderecoFocusLost
+        // TODO add your handling code here:
+        if (input_endereco.getText().equals("")) {
+            input_endereco.setText("Digite seu endereço aqui");
+        }
+        
+    }//GEN-LAST:event_input_enderecoFocusLost
+
+    private void input_enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_enderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_enderecoActionPerformed
+
+    private void input_estadoCivilFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_estadoCivilFocusGained
+        // TODO add your handling code here:
+        if (input_estadoCivil.getText().equals("Digite seu estado civil aqui")) {
+            input_estadoCivil.setText("");
+        }
+    }//GEN-LAST:event_input_estadoCivilFocusGained
+
+    private void input_estadoCivilFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_input_estadoCivilFocusLost
+        // TODO add your handling code here:
+        if (input_estadoCivil.getText().equals("")) {
+            input_estadoCivil.setText("Digite seu estado civil aqui");
+        }
+    }//GEN-LAST:event_input_estadoCivilFocusLost
+
+    private void input_estadoCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_estadoCivilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_estadoCivilActionPerformed
 
     /**
      * @param args the command line arguments
@@ -504,6 +609,7 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabel10;
     private javax.swing.JTextArea area;
     private javax.swing.JButton btn_cadastrarCliente;
     private javax.swing.JRadioButton btn_feminino;
@@ -511,9 +617,12 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton btn_masculino;
     private javax.swing.JButton btn_menu;
     private javax.swing.JRadioButton btn_outro;
+    private javax.swing.JLabel endereco1;
     private javax.swing.JTextField input_cpf;
     private javax.swing.JTextField input_dataNascimento;
     private javax.swing.JTextField input_email;
+    private javax.swing.JTextField input_endereco;
+    private javax.swing.JTextField input_estadoCivil;
     private javax.swing.JTextField input_nome;
     private javax.swing.JTextField input_telefone;
     private javax.swing.JLabel jLabel1;

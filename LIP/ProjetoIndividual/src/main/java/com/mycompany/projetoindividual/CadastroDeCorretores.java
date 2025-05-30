@@ -15,6 +15,7 @@ public class CadastroDeCorretores {
     private String Email;
     private String DataAdmissao;
     private String Especialidade;
+    private String Comissao;
 
     public String getNome() {
         return Nome;
@@ -64,9 +65,17 @@ public class CadastroDeCorretores {
         this.Especialidade = Especialidade;
     }
     
+      public String getComissao() {
+        return Comissao;
+    }
+
+    public void setComissao(String Comissao) {
+        this.Comissao = Comissao;
+    }
+    
     @Override
     public String toString() {
-        return "Nome=" + Nome + "\n Creci=" + Creci + "\n Telefone=" + Telefone + "\n Email=" + Email + "\n DataAdmissao=" + DataAdmissao + "\n Especialidade=" + Especialidade;
+        return "Nome=" + Nome + "\n Creci=" + Creci + "\n Telefone=" + Telefone + "\n Email=" + Email + "\n DataAdmissao=" + DataAdmissao + "\n Especialidade=" + Especialidade + "\n Comissao=" + Comissao;
     }
     
 }

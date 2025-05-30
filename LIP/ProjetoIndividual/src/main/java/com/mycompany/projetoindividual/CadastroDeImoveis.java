@@ -20,6 +20,7 @@ public class CadastroDeImoveis {
     private String Vagas;
     private String TipoImovel;
     private String Proprietario;
+    private String anoConstrucao;
 
     public String getEndereco() {
         return Endereco;
@@ -107,6 +108,19 @@ public class CadastroDeImoveis {
 
     public void setProprietario(String Proprietario) {
         this.Proprietario = Proprietario;
+    }
+    
+    public String getAnoConstrucao() {
+        return anoConstrucao;
+    }
+
+    public void setAnoConstrucao(String anoConstrucao) {
+        this.anoConstrucao = anoConstrucao;
+    }
+
+    @Override
+    public String toString() {
+        return "Endereco=" + Endereco + ",\nCidade=" + Cidade + ",\nEstado=" + Estado + "\nCep=" + Cep + "\nValor=" + Valor + "\nArea=" + Area + "\nQuartos=" + Quartos + "\nBanheiros=" + Banheiros + "\nVagas=" + Vagas + "\nTipoImovel=" + TipoImovel + "\nProprietario=" + Proprietario + "\nanoConstrucao=" + anoConstrucao;
     }
     
     

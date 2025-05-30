@@ -15,7 +15,9 @@ public class CadastroDoProprietario {
     private String Email;
     private String DataNascimento;
     private String Genero;
-
+    private String Profissao;
+    private String Nacionalidade;
+    
     public String getNome() {
         return Nome;
     }
@@ -64,9 +66,25 @@ public class CadastroDoProprietario {
         this.Genero = Genero;
     }
     
+        public String getProfissao() {
+        return Profissao;
+    }
+
+    public void setProfissao(String Profissao) {
+        this.Profissao = Profissao;
+    }
+
+    public String getNacionalidade() {
+        return Nacionalidade;
+    }
+
+    public void setNacionalidade(String Nacionalidade) {
+        this.Nacionalidade = Nacionalidade;
+    }
+    
     @Override
     public String toString() {
-        return "Nome=" + Nome + "\n Cpf=" + Cpf + "\n Telefone=" + Telefone + "\n Email=" + Email + "\n DataNascimento=" + DataNascimento + "\n Genero=" + Genero ;
+        return "Nome=" + Nome + "\n Cpf=" + Cpf + "\n Telefone=" + Telefone + "\n Email=" + Email + "\n DataNascimento=" + DataNascimento + "\n Genero=" + Genero + "\n Profissao=" + Profissao + "\n Nacionalidade=" + Nacionalidade;
     }
     
     
