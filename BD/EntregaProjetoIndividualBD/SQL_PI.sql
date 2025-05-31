@@ -1,3 +1,100 @@
+-- Criação de Tabelas
+
+CREATE DATABASE Imobiliaria;
+USE Imobiliaria;
+
+-- Tabela clientes
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    genero VARCHAR(20) NOT NULL,
+    endereco VARCHAR(255),             
+    estado_civil VARCHAR(20)             
+);
+
+-- Tabela corretores
+CREATE TABLE corretores (
+    id_corretor INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    creci VARCHAR(20) UNIQUE NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    data_admissao DATE NOT NULL,
+    especialidade VARCHAR(100),
+    comissao_padrao DECIMAL(5,2)         
+);
+
+-- Tabela tipoImoveis
+CREATE TABLE tipoImoveis (
+    id_tipo INT AUTO_INCREMENT PRIMARY KEY,
+    descricao VARCHAR(100) NOT NULL
+);
+
+-- Tabela proprietarios
+CREATE TABLE proprietarios (
+    id_proprietario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    genero VARCHAR(20) NOT NULL,
+    profissao VARCHAR(100),           
+    nacionalidade VARCHAR(50)            
+);
+
+-- Tabela imoveis
+CREATE TABLE imoveis (
+    id_imovel INT AUTO_INCREMENT PRIMARY KEY,
+    endereco VARCHAR(255) NOT NULL,
+    cidade VARCHAR(100) NOT NULL,
+    estado VARCHAR(2) NOT NULL,
+    cep VARCHAR(9) NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    area DECIMAL(10,2) NOT NULL,
+    quartos INT,
+    banheiros INT,
+    vagas INT,
+    id_tipo INT NOT NULL,
+    id_proprietario INT NOT NULL,
+    ano_construcao YEAR,                  
+    FOREIGN KEY (id_tipo) REFERENCES tipoImoveis(id_tipo),
+    FOREIGN KEY (id_proprietario) REFERENCES proprietarios(id_proprietario)
+);
+
+-- Tabela locacao
+CREATE TABLE locacao (
+    id_locacao INT AUTO_INCREMENT PRIMARY KEY,
+    data_inicio DATE NOT NULL,
+    data_fim DATE,
+    valor_mensal DECIMAL(10,2),
+    id_imovel INT NOT NULL,
+    id_locatario INT NOT NULL,
+    id_corretor INT NOT NULL,
+    forma_pagamento VARCHAR(50),              
+    FOREIGN KEY (id_imovel) REFERENCES imoveis(id_imovel),
+    FOREIGN KEY (id_locatario) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_corretor) REFERENCES corretores(id_corretor)
+);
+
+-- Tabela venda
+CREATE TABLE venda (
+    id_venda INT AUTO_INCREMENT PRIMARY KEY,
+    data_venda DATE NOT NULL,
+    valor_venda DECIMAL(10,2),
+    id_imovel INT NOT NULL,
+    id_comprador INT NOT NULL,
+    id_corretor INT NOT NULL,
+    forma_pagamento VARCHAR(50),            
+    FOREIGN KEY (id_imovel) REFERENCES imoveis(id_imovel),
+    FOREIGN KEY (id_comprador) REFERENCES clientes(id_cliente),
+    FOREIGN KEY (id_corretor) REFERENCES corretores(id_corretor)
+);
+
 -- Inserts
 
 INSERT INTO clientes (nome, cpf, telefone, email, data_nascimento, genero, endereco, estado_civil) VALUES
@@ -83,3 +180,67 @@ INSERT INTO venda (data_venda, valor_venda, id_imovel, id_comprador, id_corretor
 ('2023-08-18', 3600000.00, 3, 9, 3, 'À Vista'),
 ('2023-09-22', 880000.00, 4, 10, 4, 'Financiamento Bancário'),
 ('2023-10-30', 800000.00, 8, 1, 8, 'Financiamento Bancário');
+
+-- 1. Listar todos os clientes
+SELECT * FROM clientes;
+
+-- 2. Listar todos os corretores e sua especialidade com a comissão padrão
+SELECT nome, creci, especialidade, comissao_padrao
+FROM corretores;
+
+-- 3. Listar imóveis disponíveis, mostrando tipo do imóvel, endereço, cidade e valor
+SELECT i.endereco, i.cidade, i.estado, i.valor, ti.descricao AS tipo_imovel
+FROM imoveis i
+JOIN tipoImoveis ti ON i.id_tipo = ti.id_tipo;
+
+-- 4. Clientes que alugaram imóveis
+SELECT 
+    c.nome AS nome_cliente,
+    i.endereco,
+    l.data_inicio,
+    l.data_fim
+FROM locacao l
+INNER JOIN clientes c ON l.id_locatario = c.id_cliente
+INNER JOIN imoveis i ON l.id_imovel = i.id_imovel;
+
+-- 5. Clientes que compraram imóveis 
+SELECT  
+    c.nome AS nome_cliente, 
+    i.endereco, 
+    v.valor_venda, 
+    v.data_venda 
+FROM venda v 
+INNER JOIN clientes c ON v.id_comprador = c.id_cliente 
+INNER JOIN imoveis i ON v.id_imovel = i.id_imovel; 
+
+-- 6. Listar proprietários e a quantidade de imóveis que possuem
+SELECT p.nome, COUNT(i.id_imovel) AS quantidade_imoveis
+FROM proprietarios p
+LEFT JOIN imoveis i ON i.id_proprietario = p.id_proprietario
+GROUP BY p.nome
+ORDER BY quantidade_imoveis DESC;
+
+-- 7. Média de valor dos imóveis por tipo 
+SELECT ti.descricao AS tipo_imovel, AVG(i.valor) AS valor_medio
+FROM imoveis i
+JOIN tipoImoveis ti ON i.id_tipo = ti.id_tipo
+GROUP BY ti.descricao;
+
+-- 8. Corretores com o maior número de vendas
+SELECT corr.nome, COUNT(v.id_venda) AS total_vendas, SUM(v.valor_venda) AS total_valor_vendas
+FROM venda v
+JOIN corretores corr ON v.id_corretor = corr.id_corretor
+GROUP BY corr.nome
+ORDER BY total_vendas DESC;
+
+-- 9. Clientes que fizeram locação com valor mensal acima de R$ 3000
+SELECT c.nome, l.valor_mensal, i.endereco, l.data_inicio, l.data_fim
+FROM locacao l
+JOIN clientes c ON l.id_locatario = c.id_cliente
+JOIN imoveis i ON l.id_imovel = i.id_imovel
+WHERE l.valor_mensal > 3000;
+
+-- 10. Imóveis construídos depois de 2015 com 3 ou mais quartos
+SELECT endereco, cidade, ano_construcao, quartos, valor
+FROM imoveis
+WHERE ano_construcao > 2015 AND quartos >= 3;
