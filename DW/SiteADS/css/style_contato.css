@@ -107,7 +107,7 @@ fieldset{
 }
 .enviar:hover{
 	background: #7744B8;
-	transform: scale(1.2);
+	transform: scale(1.0);
 }
 
 /*Div do retorno do formulário*/
