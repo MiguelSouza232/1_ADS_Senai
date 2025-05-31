@@ -69,6 +69,7 @@ nav li {
 }
 
 .titulo_bio {
+  padding-top: 100px;
   text-align: center;
   color: white;
   clear: left;
@@ -98,6 +99,7 @@ p {
 }
 
 .titulo_servicos {
+  padding-top: 100;
   text-align: center;
   color: white;
   clear: left;
@@ -107,8 +109,8 @@ p {
   width: 30%;
   display: inline-block;
   vertical-align: top;
-  /* margin-top: 100px;
-    margin-left: 40%;*/
+  margin-top: 50px;
+  margin-left: 50px;
   color: white;
 }
 
@@ -164,3 +166,7 @@ footer {
   padding: 30px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
